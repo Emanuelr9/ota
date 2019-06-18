@@ -9,10 +9,10 @@ import java.util.stream.Stream;
 
 import static org.testng.Assert.*;
 
-public class OtaTest {
+public class OtaTest{
 
     @org.testng.annotations.Test
-    public void testBuscarVuelos() {
+    public void testBuscarVuelos(){
         DistribuidorDeTrafico distribuidorDeTrafico = new DistribuidorDeTrafico();
         Ota ota = new Ota(distribuidorDeTrafico);
 

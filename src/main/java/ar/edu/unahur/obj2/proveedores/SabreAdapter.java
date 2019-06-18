@@ -8,7 +8,7 @@ import org.joda.time.DateTime;
 import java.util.List;
 import java.util.Set;
 
-public class SabreAdapter implements Proveedor {
+public class SabreAdapter implements Proveedor{
 
     Sabre sabre;
 
