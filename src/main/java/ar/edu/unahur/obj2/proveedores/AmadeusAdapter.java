@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class AmadeusAdapter implements Proveedor{
 
-        Amadeus amadeus;
+       private Amadeus amadeus;
 
     public AmadeusAdapter(Amadeus amadeus) {
         this.amadeus = amadeus;

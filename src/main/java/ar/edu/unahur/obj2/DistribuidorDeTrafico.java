@@ -1,30 +1,35 @@
 package ar.edu.unahur.obj2;
-import ar.edu.unahur.obj2.proveedores.Amadeus;
-import ar.edu.unahur.obj2.proveedores.AmadeusAdapter;
 import ar.edu.unahur.obj2.proveedores.Proveedor;
-import ar.edu.unahur.obj2.proveedores.*;
+
+import java.util.List;
 import java.util.Random;
 
 public class DistribuidorDeTrafico {
 
-    private Proveedor Amadeus;
-    private Proveedor Worldspan;
+    public DistribuidorDeTrafico(List<Proveedor> proveedores) {
+        this.proveedores = proveedores;
+    }
+
 
     private Random random = new Random();
+    private List<Proveedor>proveedores;
 
-    Proveedor proveedor() {
-        switch (random.nextInt(9)) {
-            case 0:
-            case 1:
-            case 2: return new AmadeusAdapter(new Amadeus());
-            case 3:
-            case 4:
-            case 5: return new SabreAdapter(new Sabre());
-            case 6:
-            case 7:
-            case 8: return Worldspan;
-            default: return Amadeus;
-        }
+
+    public void addProveedor(Proveedor proveedor){
+        proveedores.add(proveedor);
+    }
+
+    public Proveedor proveedor() {
+
+        return proveedores.get(random.nextInt(proveedores.size()));
 
     }
-}
+
+
+
+
+
+
+
+    }
+
