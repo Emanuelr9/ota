@@ -6,13 +6,14 @@ import java.util.Random;
 
 public class DistribuidorDeTrafico {
 
+    private Random random = new Random();
+    private List<Proveedor>proveedores;
+
+
     public DistribuidorDeTrafico(List<Proveedor> proveedores) {
         this.proveedores = proveedores;
     }
 
-
-    private Random random = new Random();
-    private List<Proveedor>proveedores;
 
 
     public void addProveedor(Proveedor proveedor){

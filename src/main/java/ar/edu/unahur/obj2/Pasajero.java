@@ -1,18 +1,18 @@
 package ar.edu.unahur.obj2;
 
 public class Pasajero {
-    private String nomnbre;
+    private String nombre;
     private String apellido;
     private int edad;
 
-    public Pasajero(String nomnbre, String apellido, int edad) {
-        this.nomnbre = nomnbre;
+    public Pasajero(String nombre, String apellido, int edad) {
+        this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
     }
 
     public String getNomnbre() {
-        return nomnbre;
+        return nombre;
     }
 
     public String getApellido() {

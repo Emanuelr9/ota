@@ -10,6 +10,10 @@ public class Ota {
 
     private DistribuidorDeTrafico distribuidorDeTrafico;
 
+    private Proveedor amadeus;
+    private Proveedor sabre;
+    private Proveedor worldspan;
+
     public Ota(DistribuidorDeTrafico distribuidorDeTrafico) {
         this.distribuidorDeTrafico = distribuidorDeTrafico;
 
