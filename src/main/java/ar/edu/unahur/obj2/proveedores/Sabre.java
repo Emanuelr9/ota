@@ -36,7 +36,7 @@ public class Sabre {
 
     public Boleto comprar(Vuelo vuelo, Set<Pasajero> pasajeros) {
         Vuelo vueloAVender = vuelos.stream()
-                .filter(v -> v.equals(v))
+                .filter(v -> vuelo.equals(v))
                 .findAny()
                 .orElseThrow(() -> new RuntimeException("Vuelo inexistente"));
 

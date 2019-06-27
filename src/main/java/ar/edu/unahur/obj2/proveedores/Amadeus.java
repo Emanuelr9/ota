@@ -15,11 +15,11 @@ public class Amadeus {
     private final Set<Vuelo> vuelos = new HashSet<Vuelo>();
 
     public Amadeus() {
-        vuelos.add(new Vuelo(new DateTime("2019-12-13"), "BUE", "MIA", "AA1000", 10, "Worldspan"));
-        vuelos.add(new Vuelo(new DateTime("2019-12-14"), "BUE", "MIA", "AA1043", 10, "Worldspan"));
-        vuelos.add(new Vuelo(new DateTime("2019-12-13"), "BUE", "COR", "AA1044", 10, "Worldspan"));
-        vuelos.add(new Vuelo(new DateTime("2019-12-15"), "BUE", "SAO", "G31010", 10, "Worldspan"));
-        vuelos.add(new Vuelo(new DateTime("2019-12-13"), "BUE", "NYC", "LA900", 10, "Worldspan"));
+        vuelos.add(new Vuelo(new DateTime("2019-12-13"), "BUE", "MIA", "AA1000", 10, "Amadeus"));
+        vuelos.add(new Vuelo(new DateTime("2019-12-14"), "BUE", "MIA", "AA1043", 10, "Amadeus"));
+        vuelos.add(new Vuelo(new DateTime("2019-12-13"), "BUE", "COR", "AA1044", 10, "Amadeus"));
+        vuelos.add(new Vuelo(new DateTime("2019-12-15"), "BUE", "SAO", "G31010", 10, "Amadeus"));
+        vuelos.add(new Vuelo(new DateTime("2019-12-13"), "BUE", "NYC", "LA900", 10, "Amadeus"));
     }
 
     public List<Vuelo> executeSearch(DateTime fecha, final String origen, final String destino) {
@@ -34,7 +34,7 @@ public class Amadeus {
 
     public Boleto executeBook(Vuelo vuelo, Set<Pasajero> pasajeros) {
         Vuelo vueloAVender = vuelos.stream()
-                .filter(v -> v.equals(v))
+                .filter(v -> vuelo.equals(v))
                 .findAny()
                 .orElseThrow(() -> new RuntimeException("Vuelo inexistente"));
 
