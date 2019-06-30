@@ -7,12 +7,11 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import java.util.Set;
 
-
-public class OtaTest {
+public class TestWorldspan {
 
     Amadeus amadeus;
     Sabre sabre;
@@ -21,7 +20,6 @@ public class OtaTest {
     AmadeusAdapter amadeusAdapter;
     SabreAdapter sabreAdapter;
     WorldspanAdapter worldspanAdapter;
-
 
     @BeforeTest
     public void beforeTest(){
@@ -33,12 +31,11 @@ public class OtaTest {
         sabreAdapter = new SabreAdapter(sabre);
         worldspanAdapter = new WorldspanAdapter(worldspan);
     }
-
     @Test
 
     public void TestBuscarVuelos(){
 
-        List<Proveedor> proveedores = Stream.of(sabreAdapter)
+        List<Proveedor> proveedores = Stream.of(worldspanAdapter)
                 .collect(Collectors.toList());
 
         DistribuidorDeTrafico distribuidorDeTrafico = new DistribuidorDeTrafico(proveedores);
@@ -48,22 +45,21 @@ public class OtaTest {
         DateTime fecha = new DateTime("2019-12-13");
 
 
-        List<Vuelo> vuelo1 = ota.buscarVuelos(fecha, "BUE", "MIA");
+        List<Vuelo> vuelo1 = ota.buscarVuelos(fecha, "BUE", "NYC");
 
 
-        List<Vuelo> vuelo3 = sabre.buscar(fecha, "BUE","MIA");
+        List<Vuelo> vuelo3 = sabre.buscar(fecha, "BUE","NYC");
 
         //Compara vuelos.
         Assert.assertEquals(vuelo1, vuelo3);
 
     }
 
-
     @Test
     public void testReservarVuelo() {
 
 
-        List<Proveedor> proveedores = Stream.of(sabreAdapter)
+        List<Proveedor> proveedores = Stream.of(worldspanAdapter)
                 .collect(Collectors.toList());
 
         DistribuidorDeTrafico distribuidorDeTrafico = new DistribuidorDeTrafico(proveedores);
@@ -72,11 +68,11 @@ public class OtaTest {
 
         DateTime fecha = new DateTime("2019-12-13");
 
-        List<Vuelo> vuelos = ota.buscarVuelos(fecha, "BUE", "MIA");
+        List<Vuelo> vuelos = ota.buscarVuelos(fecha, "BUE", "NYC");
 
         Vuelo elegido =  vuelos.get(0);
 
-        Set<Pasajero> pasajeros = Stream.of(new Pasajero("Rocky", "Balboa", 0)).collect(Collectors.toSet());
+        Set<Pasajero> pasajeros = Stream.of(new Pasajero("Liam", "Gallagher", 0)).collect(Collectors.toSet());
 
         Boleto boleto = ota.reservar(elegido, pasajeros );
 
@@ -84,5 +80,6 @@ public class OtaTest {
 
         Assert.assertEquals(boleto.getVuelo(), elegido);
     }
+
 }
 
